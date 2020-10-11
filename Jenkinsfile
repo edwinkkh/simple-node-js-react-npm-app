@@ -1,16 +1,13 @@
 pipeline {
-  agent {
-    node {
-      label 'test'
-    }
+    agent any
+    
+    tools {nodejs "node"}
 
-  }
-  stages {
-    stage('test') {
-      steps {
-        sh 'sh \'npm --version\''
-      }
+    stages {
+        stage('build') {
+            steps {
+                sh 'npm --version'
+            }
+        }
     }
-
-  }
 }
